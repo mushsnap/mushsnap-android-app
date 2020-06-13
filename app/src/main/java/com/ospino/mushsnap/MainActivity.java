@@ -141,6 +141,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check if the phone has internet connection.
+     * @return
+     */
     public boolean isOnline() {
         boolean result;
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -153,6 +157,10 @@ public class MainActivity extends AppCompatActivity {
         return result;
     }
 
+    /**
+     * Request Camera permission
+     * @param view
+     */
     public void requestForCameraPermission(View view) {
         final String permission = Manifest.permission.CAMERA;
         if (ContextCompat.checkSelfPermission(MainActivity.this, permission)
@@ -167,6 +175,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param message
+     * @param permission
+     */
     private void showPermissionRationaleDialog(final String message, final String permission) {
         new AlertDialog.Builder(MainActivity.this)
                 .setMessage(message)
@@ -186,15 +199,28 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * requestForPermission
+     * @param permission
+     */
     private void requestForPermission(final String permission) {
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, REQUEST_CAMERA_PERMISSION);
     }
 
+    /**
+     * Launch camera
+     */
     private void launch() {
         Intent startCustomCameraIntent = new Intent(this, CameraActivity.class);
         startActivityForResult(startCustomCameraIntent, REQUEST_CAMERA);
     }
 
+    /**
+     * Camera Permission result
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
@@ -212,6 +238,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Resized BitMap
+     * @param bm
+     * @param newWidth
+     * @param newHeight
+     * @return
+     */
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();

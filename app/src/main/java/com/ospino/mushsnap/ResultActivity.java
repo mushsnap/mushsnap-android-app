@@ -22,17 +22,24 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+/**
+ *
+ */
 public class ResultActivity extends AppCompatActivity {
 
     private MushroomAdapter mAdapter;
     private TextView mEmptyStateTextView;
 
 
+    /**
+     * On create inflate the view
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Backpressed
         setTitle("Detection Result");
 
         Intent intent = getIntent();
@@ -51,6 +58,11 @@ public class ResultActivity extends AppCompatActivity {
         mAdapter.addAll(mushrooms);
     }
 
+    /**
+     * On Options Item Selected
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

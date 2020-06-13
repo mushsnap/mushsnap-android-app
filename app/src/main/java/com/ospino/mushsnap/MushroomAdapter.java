@@ -13,12 +13,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
+/**
+ * Results list adapter
+ */
 public class MushroomAdapter extends ArrayAdapter<Mushroom> {
 
     public MushroomAdapter(@NonNull Context context, List<Mushroom> skinLesions) {
         super(context, 0, skinLesions);
     }
 
+
+    /**
+     * Create the view for each result
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
